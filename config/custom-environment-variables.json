@@ -1,0 +1,7 @@
+{
+    "Mongo": {
+        "dbConfig": {
+            "URI": "MONGO_URI"
+        }
+    }
+}
