@@ -5,6 +5,7 @@ const gravatar = require("gravatar");
 const jwt = require("jsonwebtoken");
 const { check, validationResult } = require("express-validator");
 const router = express.Router();
+const auth = require("../../middleware/auth");
 const User = require("../../models/User");
 
 
@@ -13,7 +14,15 @@ const User = require("../../models/User");
 * @desc     Get all users
 * @access   Public
 */
-router.get("/", (req, res) => res.send("TODO: Return all users..."));
+router.get("/", auth, async (req, res) => {
+    try {
+        const user = await User.findById(req.user.id).select("-password");
+        res.json(user);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Server error");
+    }
+});
 
 /*
 * @route    POST api/users
@@ -70,7 +79,7 @@ router.post(
             );
         } catch (err) {
             console.error(err.message);
-            return res.status(500).send("Server error");
+            res.status(500).send("Server error");
         }
     });
 
