@@ -1,7 +1,9 @@
 {
     "Mongo": {
-        "dbConfig": {
-            "URI": "MONGO_URI"
-        }
+        "URI": "MONGO_URI"
+    },
+    "JWT": {
+        "secret": "JWT_SECRET",
+        "expiration": "JWT_EXPIRATION"
     }
 }
