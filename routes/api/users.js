@@ -10,11 +10,11 @@ const User = require("../../models/User");
 
 
 /*
-* @route    GET api/users
-* @desc     Get all users
+* @route    GET api/users/me
+* @desc     Get current user
 * @access   Public
 */
-router.get("/", auth, async (req, res) => {
+router.get("/me", auth, async (req, res) => {
     try {
         const user = await User.findById(req.user.id).select("-password");
         res.json(user);
