@@ -6,11 +6,6 @@ const ProfileSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'user'
     },
-    handle: {
-        type: String,
-        required: true,
-        max: 40
-    },
     company: {
         type: String
     },

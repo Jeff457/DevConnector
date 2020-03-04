@@ -3,7 +3,8 @@ const config = require("config");
 
 
 module.exports = function (req, res, next) {
-    const token = req.header("Authorization").replace("Bearer ", "");
+    const authHeader = req.header("Authorization") || "";
+    const token = authHeader.replace("Bearer ", "");
 
     if (!token) {
         return res.status(401).json({ msg: "Missing auth token" });
