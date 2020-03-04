@@ -1,5 +1,6 @@
 {
     "JWT": {
-        "expiration": 360000
+        "expiration": 360000,
+        "secret": "notaverygoodsecret!"
     }
 }
